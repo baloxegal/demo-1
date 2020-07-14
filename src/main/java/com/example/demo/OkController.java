@@ -13,4 +13,10 @@ public class OkController {
   public String okPage() {
   	return "It works just fine!!!";
   }
+
+@RequestMapping("/bad")
+@ResponseBody
+  public String badPage() {
+  	return "Oooops!!!";
+  }
 }
