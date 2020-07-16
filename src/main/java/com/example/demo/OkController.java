@@ -35,15 +35,17 @@ public class OkController {
 	@RequestMapping("/index")
 	@ResponseBody
 	  public String indexPage() throws FileNotFoundException, IOException {
-//		Properties htmlData = new Properties();
-//		htmlData.load(new FileInputStream(Thread.currentThread()
-//				.getContextClassLoader().getResource("").getPath() + "static/index.html"));
-		
+
 		BufferedReader htmlData = new BufferedReader(new FileReader("src/main/resources/static/index.html"));
-		//htmlData.lines()
-		//while(htmlData.hash)
 		
-	  	return "I'm on the index page!!!" + htmlData.lines()/*htmlData.toString()*/;
+		String htmlDataPrev;
+		String htmlDataString = "";
+		
+		while((htmlDataPrev = htmlData.readLine()) != null)
+			htmlDataString += htmlDataPrev;
+		
+		htmlData.close();
+	  	return "I'm on the index page!!!" + htmlDataString;
 	  }
 	
 	@RequestMapping("/ok")
