@@ -1,5 +1,14 @@
 package com.example.demo;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.Properties;
+
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,8 +38,16 @@ public class OkController {
 	
 	@RequestMapping("/index")
 	@ResponseBody
-	  public String indexPage() {
-	  	return "I'm on the index page!!!";
+	  public String indexPage() throws FileNotFoundException, IOException {
+//		Properties htmlData = new Properties();
+//		htmlData.load(new FileInputStream(Thread.currentThread()
+//				.getContextClassLoader().getResource("").getPath() + "static/index.html"));
+		
+		BufferedReader htmlData = new BufferedReader(new FileReader("src/main/resources/static/index.html"));
+		//htmlData.lines()
+		//while(htmlData.hash)
+		
+	  	return "I'm on the index page!!!" + htmlData.lines()/*htmlData.toString()*/;
 	  }
 	
 	@RequestMapping("/ok")
