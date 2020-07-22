@@ -13,6 +13,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @EnableAutoConfiguration
 public class OkController {
+	
+	@RequestMapping("templates/index")
+	@ResponseBody
+	  public String templatesIndexPage() {
+	  	return "I'm on the templates index page!!!";
+	  }
 
 	@RequestMapping("/Library")
 	@ResponseBody
@@ -36,7 +42,7 @@ public class OkController {
 	@ResponseBody
 	  public String indexPage() throws FileNotFoundException, IOException {
 
-		BufferedReader htmlData = new BufferedReader(new FileReader("src/main/resources/static/index.html"));
+		BufferedReader htmlData = new BufferedReader(new FileReader("src/main/resources/templates/index.html"));
 		
 		String htmlDataPrev;
 		String htmlDataString = "";
