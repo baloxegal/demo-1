@@ -1,12 +1,13 @@
 package com.example.demo;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+//import java.io.BufferedReader;
+//import java.io.FileNotFoundException;
+//import java.io.FileReader;
+//import java.io.IOException;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -14,22 +15,27 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @EnableAutoConfiguration
 public class OkController {
 	
-	@RequestMapping("templates/index")
-	@ResponseBody
-	  public String templatesIndexPage() {
-	  	return "I'm on the templates index page!!!";
+	@RequestMapping("templatesIndex")
+	//@ResponseBody
+	  public String templatesIndexPage(Model model) {
+	  	//return "I'm on the templatesIndex page!!!";
+		
+		return "index";
 	  }
 
-	@RequestMapping("/Library")
+	@RequestMapping("/Genres")
 	@ResponseBody
 	  public String libraryPage() {
-	  	return "I'm on the Library page!!!";
+	  	return "I'm on the Genres page!!!";
 	  }
 	
 	@RequestMapping("/Books")
-	@ResponseBody
-	  public String booksPage() {
-	  	return "I'm on the Books page!!!";
+	//@ResponseBody
+	  public String booksPage(Model model) {
+	  	//return "I'm on the Books page!!!";
+		model.addAttribute("title", "Books about JAVA");
+		model.addAttribute("book_title", "JAVA for beginners!");
+		return "books";
 	  }
 	
 	@RequestMapping("/Authors")
@@ -38,21 +44,21 @@ public class OkController {
 	  	return "I'm on the Authors page!!!";
 	  }
 	
-	@RequestMapping("/index")
-	@ResponseBody
-	  public String indexPage() throws FileNotFoundException, IOException {
-
-		BufferedReader htmlData = new BufferedReader(new FileReader("src/main/resources/templates/index.html"));
-		
-		String htmlDataPrev;
-		String htmlDataString = "";
-		
-		while((htmlDataPrev = htmlData.readLine()) != null)
-			htmlDataString += htmlDataPrev;
-		
-		htmlData.close();
-	  	return "I'm on the index page!!!" + htmlDataString;
-	  }
+//	@RequestMapping("/index")
+//	@ResponseBody
+//	  public String indexPage() throws FileNotFoundException, IOException {
+//
+//		BufferedReader htmlData = new BufferedReader(new FileReader("src/main/resources/templates/index.html"));
+//		
+//		String htmlDataPrev;
+//		String htmlDataString = "";
+//		
+//		while((htmlDataPrev = htmlData.readLine()) != null)
+//			htmlDataString += htmlDataPrev;
+//		
+//		htmlData.close();
+//	  	return "I'm on the index page!!!" + htmlDataString;
+//	  }
 	
 	@RequestMapping("/ok")
 	@ResponseBody
