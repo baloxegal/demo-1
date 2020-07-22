@@ -4,6 +4,7 @@ H1 {
   font-family: Arial, Verdana, sans-serif;
   text-align: center;
 }
+
 P {
   font-size: 100%;
   font-family: Arial, Verdana, sans-serif;
@@ -11,6 +12,7 @@ P {
   padding-left: 20px;
   background: yellow;
 }
+
 body {
     background: red;
    }
