@@ -37,6 +37,9 @@ public class Book {
 	private boolean avaliable;
 	
 	@NonNull
+	private String cover;
+	
+	@NonNull
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
 	private Genre genre;
 	

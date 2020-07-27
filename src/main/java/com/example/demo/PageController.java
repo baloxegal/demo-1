@@ -24,21 +24,27 @@ public class PageController {
 	
 	@RequestMapping("index")
 	  public String index(Model model) {
-		Author x = new Author("Vasea");
-		Author y = new Author("Petea");
+		Author x = new Author("Николай Островский");
+		Author y = new Author("Антуан де Сент-Экзюпери");
+		Author n = new Author("Михаил Шолохов");
+		Author m = new Author("Лев Толстой");
 		
-		Genre f = new Genre("Fair");
-		Genre g = new Genre("Kino");
-		Genre h = new Genre("Bla-Bla");
+		Genre f = new Genre("Революционное мясо");
+		Genre g = new Genre("Для покурить");
+		Genre h = new Genre("Революция Мексикана");
+		Genre p = new Genre("Мясо по французки");
 				
 		List<Book> books = new ArrayList<>();
 		
-		books.add(new Book("Killer", 1980, true, f,  x));
-		books.add(new Book("Poker", 1990, true, g, x));
-		books.add(new Book("Hacker", 2010, false, h, y));
-		books.add(new Book("Shocker", 2020, true, h, y));
+		books.add(new Book("Как закалялась сталь", 1938, true, "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQuocjZqbeTCT0l4VJGIZc_9VBtA9iOyp6HjA&usqp=CAU", f,  x));
+		books.add(new Book("Маленький принц", 1958, true, "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQdS5OdROIedW7Yg6NifgBCOmV9bVWcdCUb6g&usqp=CAU", g, y));
+		books.add(new Book("Тихий дон", 1948, false, "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSgqbXzoa9GQAMuSwNcBUjI_RSq-HnwblwbyA&usqp=CAU\" class=",h, n));
+		books.add(new Book("Война и мир", 1888, true, "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSFBD1YM1DIN7KWPIUdcSY4s8SfOEJyclPNOw&usqp=CAU",p, m));
+		
 		books.forEach(b -> System.out.println(b));		
-	  	model.addAllAttributes(books);
+	  	
+		model.addAttribute("books", books);
+		
 		return "index";
 	  }
 	
