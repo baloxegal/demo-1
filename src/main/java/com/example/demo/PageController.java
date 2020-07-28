@@ -4,12 +4,12 @@ package com.example.demo;
 //import java.io.FileNotFoundException;
 //import java.io.FileReader;
 //import java.io.IOException;
+//import org.springframework.web.bind.annotation.ResponseBody;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.ui.Model;
-//import org.springframework.web.bind.annotation.ResponseBody;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,11 +19,10 @@ import domain.Book;
 import domain.Genre;
 
 @Controller
-@EnableAutoConfiguration
 public class PageController {
 	
 	@RequestMapping("index")
-	  public String index(Model model) {
+	  public String getIndex(Model model) {
 		Author x = new Author("Николай Островский");
 		Author y = new Author("Антуан де Сент-Экзюпери");
 		Author n = new Author("Михаил Шолохов");
