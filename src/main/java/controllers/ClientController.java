@@ -15,10 +15,12 @@ import services.ClientServices;
 public class ClientController {
 	@Inject
 	private ClientServices clientServices;
+	
 	@RequestMapping("clients")
 	public String getClients(Model model) {
 		
 		List<Client> clients = clientServices.getClients();
+		
 		model.addAttribute("clients", clients);
 		
 		return "clients";

@@ -15,12 +15,14 @@ import services.GenreServices;
 public class GenreController {
 	@Inject
 	private GenreServices genreServices;
-	@RequestMapping("genre")
+	
+	@RequestMapping("genres")
 	public String getGenre(Model model) {
 		
-		List<Genre> genres = genreServices.getGenre();
+		List<Genre> genres = genreServices.getAllGenres();
+		
 		model.addAttribute("genres", genres);
 		
-		return "genre";
+		return "genres";
 	}
 }

@@ -1,4 +1,4 @@
-package com.example.demo;
+package controllers;
 
 import java.util.List;
 
@@ -15,12 +15,11 @@ import services.BookServices;
 public class BookController {	
 	@Inject
 	private BookServices bookServices;
+	
 	@RequestMapping("books")
-	public String getBooks(Model model) {
+	public String getAllBooks(Model model) {
 		
-		List <Book> books = bookServices.getBooks();
-		
-		books.forEach(System.out :: println);
+		List <Book> books = bookServices.getAllBooks();
 		
 		model.addAttribute("books", books);
 		

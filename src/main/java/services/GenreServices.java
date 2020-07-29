@@ -11,12 +11,16 @@ import domain.Genre;
 public class GenreServices {
 	
 	public GenreServices() {
-		
 	}
 	
-	public List<Genre> getGenre(){
+	public List<Genre> getAllGenres(){
 		
 		List<Genre> genres = new ArrayList<>();
+				
+		genres.add(new Genre("Революционное мясо"));
+		genres.add(new Genre("Для покурить"));
+		genres.add(new Genre("Революция Мексикана"));
+		genres.add(new Genre("Мясо по французки"));
 		
 		return genres;
 	}

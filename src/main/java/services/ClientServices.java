@@ -11,12 +11,16 @@ import domain.Client;
 public class ClientServices {
 	
 	public ClientServices() {
-		
 	}
 	
 	public List<Client> getClients(){
 		
 		List<Client> clients = new ArrayList<>();
+		
+		clients.add(new Client("Гица Гаванос"));
+		clients.add(new Client("Василе Конилэ"));
+		clients.add(new Client("Петру Маранделу"));
+		clients.add(new Client("Миричика Курунсус"));
 		
 		return clients;
 	}

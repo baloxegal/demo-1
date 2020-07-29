@@ -1,4 +1,4 @@
-package com.example.demo;
+package controllers;
 
 //import java.io.BufferedReader;
 //import java.io.FileNotFoundException;
@@ -19,7 +19,7 @@ import domain.Book;
 import domain.Genre;
 
 @Controller
-public class PageController {
+public class StartPageController {
 	
 	@RequestMapping("index")
 	  public String getIndex(Model model) {
@@ -40,8 +40,6 @@ public class PageController {
 		books.add(new Book("Тихий дон", 1948, false, "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSgqbXzoa9GQAMuSwNcBUjI_RSq-HnwblwbyA&usqp=CAU\" class=",h, n));
 		books.add(new Book("Война и мир", 1888, true, "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSFBD1YM1DIN7KWPIUdcSY4s8SfOEJyclPNOw&usqp=CAU",p, m));
 		
-		books.forEach(b -> System.out.println(b));		
-	  	
 		model.addAttribute("books", books);
 		
 		return "index";

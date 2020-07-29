@@ -1,28 +1,24 @@
 package controllers;
 
-import java.util.List;
-
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import domain.Author;
 import services.AuthorServices;
 
 @Controller
 public class AuthorController {
 	@Inject
-	private AuthorServices authorService;
+	private AuthorServices authorServices;
 	
 	@RequestMapping("authors")
-	public String getAuthors(Model model) {
+	public String getAllAuthors(Model model) {
 		
-		List <Author> authors = authorService.getAuthors();
-		model.addAttribute("authors", authors);
+		model.addAttribute("authors", authorServices.getAllAuthors());
 		
-		return "author";
+		return "authors";
 	}
 	
 }
